@@ -27,3 +27,4 @@ The resource will automatically spawn vehicles and boats at the configured locat
 ## License
 
 This project is licensed under the MIT License.
+.
