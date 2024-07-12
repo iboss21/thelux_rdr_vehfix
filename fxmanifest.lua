@@ -1,7 +1,7 @@
 fx_version 'cerulean'
 game 'rdr3'
 
-author 'thelux'
+author 'theluxempire - iBoss21'
 description 'Advanced Vehicle Fix for RedM, compatible with multiple frameworks and notification/target systems'
 version '1.0.0'
 
