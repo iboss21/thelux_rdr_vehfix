@@ -1,5 +1,6 @@
 local framework = Config.Framework
 local notificationSystem = Config.NotificationSystem
+local targetSystem = Config.TargetSystem
 
 local function notify(message)
     if notificationSystem == 'ox_lib' then
@@ -7,7 +8,7 @@ local function notify(message)
     elseif notificationSystem == 'mythic_notify' then
         exports.mythic_notify:SendAlert('inform', message)
     elseif notificationSystem == 'esx' then
-        TriggerClientEvent('esx:showNotification', -1, message)
+        ESX.ShowNotification(message)
     end
 end
 
@@ -105,8 +106,57 @@ local function initializeFramework()
     end
 end
 
+local function initializeTargetSystem()
+    if targetSystem == 'qtarget' then
+        exports.qtarget:AddTargetModel(Config.Vehicle.AllowedVehicles, {
+            options = {
+                {
+                    event = "vehicle:spawn",
+                    icon = "fas fa-car",
+                    label = "Spawn Vehicle"
+                }
+            },
+            distance = 2.5
+        })
+
+        exports.qtarget:AddTargetModel(Config.Boat.AllowedBoats, {
+            options = {
+                {
+                    event = "boat:spawn",
+                    icon = "fas fa-ship",
+                    label = "Spawn Boat"
+                }
+            },
+            distance = 2.5
+        })
+    elseif targetSystem == 'ox_target' then
+        exports.ox_target:addModel(Config.Vehicle.AllowedVehicles, {
+            {
+                name = 'spawn_vehicle',
+                label = 'Spawn Vehicle',
+                icon = 'fas fa-car',
+                onSelect = function()
+                    TriggerEvent('vehicle:spawn')
+                end
+            }
+        })
+
+        exports.ox_target:addModel(Config.Boat.AllowedBoats, {
+            {
+                name = 'spawn_boat',
+                label = 'Spawn Boat',
+                icon = 'fas fa-ship',
+                onSelect = function()
+                    TriggerEvent('boat:spawn')
+                end
+            }
+        })
+    end
+end
+
 if Config.VersionCheck then
     Config.CheckVersion()
 end
 
 initializeFramework()
+initializeTargetSystem()
