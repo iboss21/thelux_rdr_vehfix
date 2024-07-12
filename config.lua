@@ -81,5 +81,3 @@ function Config.CheckVersion()
         end
     end, 'GET', '', {['Content-Type'] = 'application/json'})
 end
-
--- https://github.com/iboss21
