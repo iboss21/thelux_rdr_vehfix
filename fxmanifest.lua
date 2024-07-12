@@ -22,3 +22,5 @@ if resource_name ~= 'thelux_rdr_vehfix' then
     print('This resource must be named "thelux_rdr_vehfix" for it to work correctly.')
     return
 end
+
+-- https://github.com/iBoss21
