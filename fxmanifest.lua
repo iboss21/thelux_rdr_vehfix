@@ -9,11 +9,11 @@ shared_scripts {
 }
 
 client_scripts {
-    'client/wagons.lua'
+    'client/client.lua'
 }
 
 server_scripts {
-    'server/boats.lua'
+    'server/server.lua'
 }
 
 -- Ensure the resource name is correct
