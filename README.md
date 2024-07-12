@@ -27,13 +27,3 @@ The resource will automatically spawn vehicles and boats at the configured locat
 ## License
 
 This project is licensed under the MIT License.
-
-thelux_rdr_vehfix/
-│
-├── fxmanifest.lua
-├── config.lua
-├── README.md
-├── client/
-│   └── client.lua
-└── server/
-    └── server.lua
